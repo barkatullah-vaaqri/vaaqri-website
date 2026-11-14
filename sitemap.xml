@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>/</loc></url>
+  <url><loc>/systems.html</loc></url>
   <url><loc>/hub.html</loc></url>
   <url><loc>/topic.html</loc></url>
   <url><loc>/article.html</loc></url>
@@ -8,9 +9,4 @@
   <url><loc>/kds-guide.html</loc></url>
   <url><loc>/food-traceability-guide.html</loc></url>
   <url><loc>/multi-site-guide.html</loc></url>
-
-  <url><loc>/pos.html</loc></url>
-  <url><loc>/kds.html</loc></url>
-  <url><loc>/kitchen-records.html</loc></url>
-  <url><loc>/diner-app.html</loc></url>
 </urlset>
