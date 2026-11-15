@@ -1866,6 +1866,29 @@ body.lp.art .ar-end-in .related a:hover{background:var(--c-ink);color:var(--c-cr
 body.lp.art .ar-end-in .cap{background:var(--c-white);border:0}
 @media (max-width:900px){body.lp.art .ar-grid,body.lp.art .ar-end-in{grid-template-columns:minmax(0,1fr)}body.lp.art .toc{position:static;padding:14px 6px;border:1px solid var(--c-g1);border-radius:var(--r-in);background:var(--c-white)}}
 @media (max-width:640px){body.lp.art .prose,body.lp.art .prose :is(p,li){font-size:17px !important}}
+/* phones: tap targets of 44px, sample-card text of at least 12px, chart labels that fit, a strike that follows wrapped lines */
+html.svm body.lp .sv-inst s{-webkit-box-decoration-break:clone;box-decoration-break:clone}
+body.lp .sv-inst{display:block !important;line-height:1.7 !important}
+body.lp .sv-inst span{display:inline-block;margin-right:12px;line-height:1.4}
+body.lp.art .ar-end-in .grid{margin-top:18px}
+@media (max-width:900px){
+body.lp .crumbs a{display:inline-flex;align-items:center;min-height:44px;padding:0;margin:0}
+body.lp .crumbs{row-gap:0}
+body.lp.art .toc a{display:flex;align-items:center;min-height:44px}
+body.lp :is(.uc-k,.uc-tag,.uc-stn,.wv-ticks,.wv-src){font-size:12px !important}
+body.lp .uc-k{letter-spacing:.04em}
+body.lp .ft-legal a{display:inline-flex;align-items:center;min-width:44px;min-height:44px}
+}
+@media (max-width:640px){
+body.lp .wv-track,body.lp .wv-seg{overflow:visible !important}
+body.lp .wv-seg:first-child{border-radius:12px 0 0 12px}
+body.lp .wv-seg.l{border-radius:0 12px 12px 0}
+body.lp .wv-seg.u.w{border-radius:12px}
+body.lp .wv-seg.b em,body.lp .wv-seg.l em{position:absolute;top:calc(100% + 5px);padding:0 !important;font-size:12px !important;color:var(--c-ink) !important}
+body.lp .wv-seg.b em{right:4px}
+body.lp .wv-seg.l em{left:4px}
+body.lp .wv-bar-row:has(.wv-seg.b) .wv-track{margin-bottom:22px}
+}
 /* motion layer (landing page): arrivals, presses, the FAQ opening, the wordmark */
 html.mo body.lp .mo-rise{transition:opacity .7s ease var(--mo-d,0ms),transform .85s cubic-bezier(.2,.7,.2,1) var(--mo-d,0ms) !important}
 html.mo body.lp .mo-rise:not(.mo-in){opacity:0 !important;transform:translateY(28px) !important;transition:none !important}
@@ -2367,6 +2390,15 @@ if(w.matchMedia('(hover:hover) and (pointer:fine)').matches)secs.forEach(functio
     c.style.transition='transform .12s ease-out';c.style.transform='perspective(1200px) rotateX('+(-y*5).toFixed(2)+'deg) rotateY('+(x*6).toFixed(2)+'deg) translateY(-4px)';});
   v.addEventListener('pointerleave',function(){c.style.transition='';c.style.transform='';});
 });
+})();
+/* phones: the five places do not change on their own, and a tap brings the card into view */
+(function(){
+var d=document,w=window,st=d.querySelector('#journey .stg'),tabs=[].slice.call(d.querySelectorAll('#journey .stg-tab')),pn=d.querySelector('#journey .stg-panels');
+if(!st||!tabs.length||!pn||!w.matchMedia('(max-width:900px)').matches)return;
+tabs[0].click();
+var hint=st.querySelector('.stg-hint');if(hint)hint.hidden=true;
+tabs.forEach(function(t){t.addEventListener('click',function(e){if(!e.isTrusted)return;
+  setTimeout(function(){var y=pn.getBoundingClientRect().top+(w.scrollY||0)-84;w.scrollTo({top:y,behavior:(w.matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth')});},60);});});
 })();
 /* motion layer: sections arrive as they are reached, the sample card leans to the pointer, the wordmark rises */
 (function(){
