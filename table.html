@@ -1718,6 +1718,62 @@ body.lp div.sx-ai:hover{background:var(--c-ink)}
 /* the floating demo bar steps aside whenever the header, with its own demo button, is showing */
 body.lp:not(.nav-hidden) .hm-sticky.show{transform:translate(-50%,160%)}
 @media (max-width:640px){body.lp:not(.nav-hidden) .hm-sticky.show{transform:translateY(160%)}}
+
+/* ---- five places, open row: one heading (the place) and one block of text. Both lines of text share a font and size; only weight separates them. ---- */
+body.lp #journey .jv .jv-in b{display:block;max-width:27em;font-family:"Hanken Grotesk",system-ui,sans-serif;font-weight:600;font-size:var(--t-body);line-height:1.45;letter-spacing:0;color:var(--c-cream)}
+body.lp #journey .jv .jv-in span{display:block;max-width:27em;margin-top:4px;font-family:"Hanken Grotesk",system-ui,sans-serif;font-weight:400;font-size:var(--t-body);line-height:1.45;letter-spacing:0;color:var(--c-cream);opacity:.8}
+body.lp #journey .jv .stg-tab[aria-selected=true] small{margin-top:10px}
+
+/* ---- "Soon" tag: one style, in the nav menu and the footer, on every page (it was missing on the landing page) ---- */
+body.lp .mdrop-p{width:340px}
+body.lp .mdrop-p b{white-space:nowrap}
+body.lp .mdrop-p b i,body.lp .ft-soon{display:inline-block;margin-left:8px;padding:2px 8px;border-radius:var(--r-round);background:rgba(255,156,194,.18);color:var(--c-pink);
+ font-family:"Hanken Grotesk",system-ui,sans-serif;font-size:11px;font-weight:600;font-style:normal;line-height:1.4;letter-spacing:0;vertical-align:middle}
+
+/* ---- demo and footer are two sections: the demo is an ink box on the cream page; the footer is its own ink band below ---- */
+body.lp footer#demo{background:var(--c-cream) !important;padding:0 !important;overflow:visible !important}
+body.lp footer#demo>.wrap.split{box-sizing:border-box;margin-bottom:var(--sg);padding:var(--box);border-radius:var(--r-box);background:var(--c-ink);color:var(--c-cream)}
+body.lp footer#demo>.wrap.split h2.h{font-size:var(--t-section) !important;line-height:1 !important;letter-spacing:-.045em !important;max-width:none !important}
+body.lp .ft-zone{background:var(--c-ink);color:var(--c-cream);padding-top:clamp(48px,6vw,80px);overflow:hidden}
+body.lp .ft-zone>.wrap.ft{margin-top:0 !important;padding-top:0 !important;border-top:0 !important}
+/* Learn hub: featured guide, library, picker, glossary */
+body.lp.rd .lh-hero{padding-bottom:0 !important}
+body.lp.rd .lh-hero-grid{margin-top:clamp(24px,4vw,48px);align-items:stretch}
+body.lp.rd .lh-hero .lh-h1{margin-top:0}
+body.lp.rd .lh-start{display:flex;flex-direction:column}
+body.lp.rd .lh-feat{flex:1;transform:none !important;box-shadow:none !important;padding:clamp(24px,3vw,40px);gap:16px;background:var(--c-beet);color:var(--c-cream)}
+body.lp.rd .lh-feat h2{font-size:var(--t-content) !important;color:var(--c-cream)}
+body.lp.rd .lh-feat p{color:var(--c-cream);font-size:var(--t-body)}
+body.lp.rd .lh-feat .lh-meta{color:var(--c-cream)}
+body.lp.rd .lh-feat-cta{margin-top:auto;height:52px;padding:0 26px;box-sizing:border-box;background:var(--c-cream);color:var(--c-ink);font-weight:600;font-size:16px}
+body.lp.rd .lh-feat-cta .arr{display:none}
+body.lp.rd .lh-feat:hover .lh-feat-cta{background:var(--c-white)}
+body.lp.rd .lh-gloss{margin:16px 0 0;padding:18px 22px;background:var(--c-white);border-color:var(--c-g1);color:var(--c-ink)}
+body.lp.rd .lh-gloss:hover{border-color:var(--c-ink)}
+body.lp.rd .lh-gloss span{color:var(--c-g4)}
+body.lp.rd .lh-gloss strong{color:var(--c-ink);font-weight:600}
+body.lp.rd .lh-gloss>svg{color:var(--c-beet)}
+body.lp.rd .lh-gloss span.arr{flex:none;margin-left:auto;color:var(--c-ink)}
+body.lp.rd .lh-tools{margin-top:32px;padding:0;background:none;border:0;gap:16px}
+body.lp.rd .lh-tools .lh-chips:has([data-ftype]){display:none}
+body.lp.rd .lh-grid{margin-top:28px}
+body.lp.rd .lh-card{padding:26px;border-color:var(--c-g1)}
+body.lp.rd .lh-card::before{display:none}
+body.lp.rd a.lh-card:hover{transform:none;box-shadow:none;border-color:var(--c-ink)}
+body.lp.rd .lh-card h3{font-weight:600;letter-spacing:-.02em}
+body.lp.rd main>section.lh-pick{box-sizing:border-box;width:min(100% - 2*var(--g),1200px);margin:var(--sg) auto 0;padding:var(--box);border-radius:var(--r-box);background:var(--c-pink);color:var(--c-ink)}
+body.lp.rd .lh-pick>.wrap{width:auto;max-width:none;padding:0}
+body.lp.rd .lh-pick .label{display:none}
+body.lp.rd .lh-pick .sub{color:var(--c-ink)}
+body.lp.rd .lh-pain{min-height:48px;padding:0 20px;border:0;background:var(--c-white);color:var(--c-ink)}
+body.lp.rd .lh-pain:hover{background:var(--c-cream)}
+body.lp.rd .lh-pain[aria-pressed="true"]{background:var(--c-ink);color:var(--c-cream)}
+body.lp.rd .lh-ans-wrap{box-shadow:none;padding:clamp(20px,2.4vw,28px)}
+body.lp.rd .lh-ans-row.prod{border-color:var(--c-g4)}
+body.lp.rd .lh-ans-row .lh-k{color:var(--c-g2)}
+body.lp.rd .lh-ans-row.ready .lh-k{color:var(--c-cream)}
+body.lp.rd.rd.rd .lh-ans-wrap .lh-cta{align-self:flex-start;margin-top:8px;background:var(--c-pink) !important;color:var(--c-ink) !important;border-color:var(--c-pink) !important}
+body.lp.rd .lh-face.front{border-color:var(--c-ink)}
 </style>
 </head>
 <div style="width:100%;min-height:100vh;background:#FFF3E2;display:flex;flex-direction:column">
@@ -1731,10 +1787,10 @@ body.lp:not(.nav-hidden) .hm-sticky.show{transform:translate(-50%,160%)}
 </header>
 <main id="top" class="pl"><section class="cs"><div class="wrap"><div class="cs-g"><div class="cs-t"><p class="cs-pill"><i aria-hidden="true"></i>Coming soon</p><h1 class="h">Table</h1><p class="cs-line">AI with your guests, from the first question to the last bite.</p><p class="cs-p">This page is coming soon. Until then, see what the AI does here on the main page, or book a demo and we’ll show you on your own menu.</p><div class="cs-a"><a href="index.html#demo" class="btn btn-primary">Book a free demo</a><a href="index.html#journey" class="m-go">See it on the main page</a></div><nav class="cs-o" aria-label="The other places"><span>Also coming soon</span><a href="kitchen.html">Kitchen</a><a href="pass.html">Pass</a><a href="till.html">Till</a><a href="office.html">Office</a></nav></div><div class="sx-v"><div class="cmp"><article class="uc" data-seq aria-label="Sample card: the menu assistant answers a guest"><header class="uc-h"><div><p class="uc-k"><i class="uc-live" aria-hidden="true"></i>Table · QR ordering</p><p class="uc-t">Sample Kitchen · Table 4</p><p class="uc-s">Guests scan, order and pay from their own phone, with no app.</p></div><span class="uc-samp">Sample</span></header><p class="uc-q sq" style="--i:0">Something vegetarian under £15, not too spicy?</p><div class="uc-rw"><span class="uc-typing" aria-hidden="true"><i></i><i></i><i></i></span><div class="uc-a sq" style="--i:7"><p>Try the <b>Lentil Dal</b>: mild and creamy, £11. It goes well with a garlic naan.</p><p class="uc-dish"><span><b>Lentil Dal</b><span class="uc-mono">£11.00 · mild</span></span><span class="uc-add">Add</span></p><p class="uc-alg">Allergen information from the restaurant, saved 12 Oct: contains milk, mustard. Tell your server about any allergy.</p></div></div><footer class="uc-f"><span>Allergen information comes from the restaurant.</span><span>Sample data</span></footer></article></div></div></div></div></section></main>
 <footer id="demo" class="inverse" style="padding:64px 0 0;overflow:hidden">
-<div class="wrap ft" style=""><div class="ft-brand"><p class="ft-word">VAAQRI</p><p class="small" style="max-width:320px">AI for restaurants, from the back of the kitchen to the front of house.</p><a href="index.html#demo" class="btn" style="margin-top:20px;height:44px;background:#FF9CC2;color:#141212;font-size:15px">Book a free demo</a></div><nav class="ft-col" aria-label="The AI"><span class="label">The AI</span><a href="kitchen.html">Kitchen<i class="ft-soon">Soon</i></a><a href="pass.html">Pass<i class="ft-soon">Soon</i></a><a href="till.html">Till<i class="ft-soon">Soon</i></a><a href="table.html">Table<i class="ft-soon">Soon</i></a><a href="office.html">Office<i class="ft-soon">Soon</i></a></nav><nav class="ft-col" aria-label="Systems"><span class="label">Systems</span><a href="systems.html#pos">POS</a><a href="systems.html#kitchen-display">Kitchen display</a><a href="systems.html#matrix">VAAQRI Matrix</a><a href="systems.html#qr-ordering">QR ordering</a><a href="systems.html#app">VAAQRI app</a></nav><nav class="ft-col" aria-label="More from VAAQRI"><span class="label">More</span><a href="index.html">Home</a><a href="index.html#pilot">Pilot</a><a href="hub.html">Learn</a><a href="glossary.html">Glossary</a><a href="https://www.linkedin.com/company/vaaqri-ltd" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/vaaqri/" rel="noopener">Instagram</a></nav></div>
+<div class="ft-zone"><div class="wrap ft" style=""><div class="ft-brand"><p class="ft-word">VAAQRI</p><p class="small" style="max-width:320px">AI for restaurants, from the back of the kitchen to the front of house.</p><a href="index.html#demo" class="btn" style="margin-top:20px;height:44px;background:#FF9CC2;color:#141212;font-size:15px">Book a free demo</a></div><nav class="ft-col" aria-label="The AI"><span class="label">The AI</span><a href="kitchen.html">Kitchen<i class="ft-soon">Soon</i></a><a href="pass.html">Pass<i class="ft-soon">Soon</i></a><a href="till.html">Till<i class="ft-soon">Soon</i></a><a href="table.html">Table<i class="ft-soon">Soon</i></a><a href="office.html">Office<i class="ft-soon">Soon</i></a></nav><nav class="ft-col" aria-label="Systems"><span class="label">Systems</span><a href="systems.html#pos">POS</a><a href="systems.html#kitchen-display">Kitchen display</a><a href="systems.html#matrix">VAAQRI Matrix</a><a href="systems.html#qr-ordering">QR ordering</a><a href="systems.html#app">VAAQRI app</a></nav><nav class="ft-col" aria-label="More from VAAQRI"><span class="label">More</span><a href="index.html">Home</a><a href="index.html#pilot">Pilot</a><a href="hub.html">Learn</a><a href="glossary.html">Glossary</a><a href="https://www.linkedin.com/company/vaaqri-ltd/" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/vaaqri_/" rel="noopener">Instagram</a></nav></div>
 <div id="privacy" class="wrap ft-bar"><p class="small"><span id="terms">© 2026 VAAQRI Ltd · Registered in England</span></p><p class="small">Figures and names in the examples are sample data.</p><p class="ft-legal"><a href="privacy.html">Privacy</a><a href="privacy.html#terms">Terms</a></p></div>
 <div class="wrap" aria-hidden="true" style="overflow:hidden;height:150px;margin-top:24px"><p style="margin:0;font-family:Anton,Impact,sans-serif;font-size:300px;line-height:.8;color:#FF9CC2;letter-spacing:-.01em;text-align:center;transform:translateY(8px)">VAAQRI</p></div>
-</footer>
+</div></footer>
 </div>
 
 
