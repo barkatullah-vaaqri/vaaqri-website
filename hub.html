@@ -1867,11 +1867,42 @@ body.lp .wv-seg.b em{right:4px}
 body.lp .wv-seg.l em{left:4px}
 body.lp .wv-bar-row:has(.wv-seg.b) .wv-track{margin-bottom:22px}
 }
+/* phones and tablets: content is never hidden while it waits to arrive (a fast flick must not show an empty box); things slide into place instead of fading in */
+@media (max-width:900px),(hover:none){
+html.mo body.lp.lp.lp .mo-rise:not(.mo-in){opacity:1 !important;transform:translateY(26px) !important}
+html.svm body.lp .sv-s.sv-w{opacity:1;transform:translateY(34px)}
+html.svm body.lp .sv-w :is(h2.h,.sv-sub,.sv-lead,.sv-ft){opacity:1;transform:translateY(18px)}
+html.svm body.lp .sv-w .sv-l li{opacity:1;transform:translateX(-16px)}
+html.svm body.lp .sv-w .sv-l li::before{transform:scale(.55)}
+html.svm body.lp .sv-w .sv-v{opacity:1;transform:translateY(30px)}
+html.svm body.lp .sv-w .sv-q span{opacity:1;transform:translateY(.3em)}
+.aijs body.lp [data-seq] .sq,.aijs .lp [data-seq] .sq{opacity:1 !important}
+html.mo body.lp.lp .ft-mark p{transform:translateY(8px)}
+}
+/* phones and tablets: the five places, one after another (name, what it does, its sample card) */
+@media (max-width:900px){
+body.lp #journey .jv{display:flex !important;flex-direction:column;gap:0 !important}
+body.lp #journey .jv .stg-tabs,body.lp #journey .jv .stg-panels{display:contents !important}
+body.lp #journey .jv :is(.stg-hint,.stg-pp){display:none !important}
+body.lp #journey .jv .stg-tab{pointer-events:none;padding:28px 0 0 !important;border:0 !important;border-top:1px solid rgba(255,243,226,.25) !important;text-align:left}
+body.lp #journey .jv .stg-tab:first-child{border-top:0 !important;padding-top:4px !important}
+body.lp #journey .jv .stg-tab::before{display:none !important}
+body.lp #journey .jv .stg-n{opacity:1 !important;color:var(--c-pink) !important}
+body.lp #journey .jv .stg-tab small{grid-template-rows:1fr !important;margin-top:10px !important}
+body.lp #journey .jv .stg-p{display:grid !important;grid-area:auto !important;opacity:1 !important;visibility:visible !important;transform:none !important;margin:18px 0 32px !important}
+body.lp #journey .jv .stg-p:last-child{margin-bottom:0 !important}
+body.lp #journey .jv .stg-tab:nth-child(1){order:1}body.lp #journey .jv .stg-p:nth-child(1){order:2}
+body.lp #journey .jv .stg-tab:nth-child(2){order:3}body.lp #journey .jv .stg-p:nth-child(2){order:4}
+body.lp #journey .jv .stg-tab:nth-child(3){order:5}body.lp #journey .jv .stg-p:nth-child(3){order:6}
+body.lp #journey .jv .stg-tab:nth-child(4){order:7}body.lp #journey .jv .stg-p:nth-child(4){order:8}
+body.lp #journey .jv .stg-tab:nth-child(5){order:9}body.lp #journey .jv .stg-p:nth-child(5){order:10}
+body.lp #journey .hd-r{display:none}
+}
 /* motion layer (landing page): arrivals, presses, the FAQ opening, the wordmark */
 html.mo body.lp .mo-rise{transition:opacity .7s ease var(--mo-d,0ms),transform .85s cubic-bezier(.2,.7,.2,1) var(--mo-d,0ms) !important}
 html.mo body.lp .mo-rise:not(.mo-in){opacity:0 !important;transform:translateY(28px) !important;transition:none !important}
 body.lp #journey.jr-pin :is(.stg-hint,.stg-pp){display:none !important}
-body.lp.jr-on .hm-sticky{opacity:0 !important;pointer-events:none !important}
+body.lp.jr-on .hm-sticky,body.lp.at-end .hm-sticky{opacity:0 !important;pointer-events:none !important}
 /* the circle is a little taller than a capital letter and centred on the letters' middle line */
 body.lp .tl-ic{display:inline-block;position:relative;width:1.08em;height:1.08em;border-radius:50%;background:var(--c-beet);color:var(--c-cream);vertical-align:-.21em}
 body.lp .tl-ic svg{position:absolute;inset:0;margin:auto;width:.62em;height:.62em;display:block}
@@ -1948,6 +1979,9 @@ body.lp.rd .lh-gloss span.arr{flex:none;margin-left:auto;color:var(--c-ink)}
 body.lp.rd .lh-tools{margin-top:32px;padding:0;background:none;border:0;gap:16px}
 body.lp.rd .lh-tools .lh-chips:has([data-ftype]){display:none}
 body.lp.rd .lh-grid{margin-top:28px}
+/* one guide for now: nothing to search or filter */
+body.lp.rd .lh-tools,body.lp.rd .lh-hero .lh-search,body.lp.rd .lh-quick{display:none !important}
+body.lp.rd .lh-grid{grid-template-columns:minmax(0,1fr);max-width:560px}
 body.lp.rd .lh-card{padding:26px;border-color:var(--c-g1)}
 body.lp.rd .lh-card::before{display:none}
 body.lp.rd a.lh-card:hover{transform:none;box-shadow:none;border-color:var(--c-ink)}
@@ -2190,7 +2224,7 @@ a.lh-card:hover{transform:translateY(-4px);border-color:#141212;box-shadow:0 18p
 <div class="lh-chips" role="group" aria-label="Content type"><button type="button" class="lh-chip" data-ftype="all" aria-pressed="true">All</button><button type="button" class="lh-chip" data-ftype="guide" aria-pressed="false">Guides</button><button type="button" class="lh-chip" data-ftype="research" aria-pressed="false">Research</button><button type="button" class="lh-chip" data-ftype="playbook" aria-pressed="false">Playbooks</button><button type="button" class="lh-chip" data-ftype="insight" aria-pressed="false">Insights</button><button type="button" class="lh-chip" data-ftype="tool" aria-pressed="false">Tools</button><button type="button" class="lh-chip" data-ftype="topic" aria-pressed="false">Topics</button></div>
 <div class="lh-chips" role="group" aria-label="Topic"><button type="button" class="lh-chip" data-ftopic="all" aria-pressed="true">All topics</button><button type="button" class="lh-chip" id="p-ops" data-ftopic="ops" aria-pressed="false">Restaurant operations</button><button type="button" class="lh-chip" id="p-kitchen" data-ftopic="kitchen" aria-pressed="false">Kitchen management</button><button type="button" class="lh-chip" id="p-inv" data-ftopic="inv" aria-pressed="false">Inventory management</button><button type="button" class="lh-chip" id="p-guest" data-ftopic="guest" aria-pressed="false">Guest experience</button><button type="button" class="lh-chip" id="p-food" data-ftopic="food" aria-pressed="false">Food safety and traceability</button><button type="button" class="lh-chip" id="p-multi" data-ftopic="multi" aria-pressed="false">Multi-site operations</button></div>
 </div>
-<div class="lh-grid" data-grid><a href="article.html" class="lh-card t-guide" data-type="guide" data-topic="inv"><span class="lh-top"><span class="lh-type">Guide</span><span class="lh-meta">10 min read</span></span><h3>Restaurant inventory management explained</h3><p>Counting less, scanning more: stock, use-by dates and food cost in one record.</p><span class="lh-foot"><span class="lh-tp">Inventory management</span><span class="lh-read">Read <span class="arr" aria-hidden="true">&rarr;</span></span></span></a><a href="topic.html" class="lh-card t-topic" data-type="topic" data-topic="inv"><span class="lh-top"><span class="lh-type">Topic</span><span class="lh-meta">Topic hub</span></span><h3>Inventory management, the topic</h3><p>The pillar guide, supporting articles, related ideas and tools in one place.</p><span class="lh-foot"><span class="lh-tp">Inventory management</span><span class="lh-read">Read <span class="arr" aria-hidden="true">&rarr;</span></span></span></a><a href="kds-guide.html" class="lh-card t-guide" data-type="guide" data-topic="kitchen"><span class="lh-top"><span class="lh-type">Guide</span><span class="lh-meta">5 min read</span></span><h3>The complete guide to kitchen display systems</h3><p>What a KDS does, how tickets flow, and what to look for in a pilot.</p><span class="lh-foot"><span class="lh-tp">Kitchen management</span><span class="lh-read">Read <span class="arr" aria-hidden="true">&rarr;</span></span></span></a><a href="food-traceability-guide.html" class="lh-card t-guide" data-type="guide" data-topic="food"><span class="lh-top"><span class="lh-type">Guide</span><span class="lh-meta">4 min read</span></span><h3>Understanding restaurant food traceability</h3><p>Batches, allergens and the record an inspector asks for.</p><span class="lh-foot"><span class="lh-tp">Food safety and traceability</span><span class="lh-read">Read <span class="arr" aria-hidden="true">&rarr;</span></span></span></a><a href="multi-site-guide.html" class="lh-card t-guide" data-type="guide" data-topic="multi"><span class="lh-top"><span class="lh-type">Guide</span><span class="lh-meta">4 min read</span></span><h3>Managing operations across multiple restaurant locations</h3><p>What leadership needs to see weekly, and what each site needs to run.</p><span class="lh-foot"><span class="lh-tp">Multi-site operations</span><span class="lh-read">Read <span class="arr" aria-hidden="true">&rarr;</span></span></span></a></div>
+<div class="lh-grid" data-grid><a href="article.html" class="lh-card t-guide" data-type="guide" data-topic="inv"><span class="lh-top"><span class="lh-type">Guide</span><span class="lh-meta">10 min read</span></span><h3>Restaurant inventory management explained</h3><p>Counting less, scanning more: stock, use-by dates and food cost in one record.</p><span class="lh-foot"><span class="lh-tp">Inventory management</span><span class="lh-read">Read <span class="arr" aria-hidden="true">&rarr;</span></span></span></a></div>
 <div class="lh-soonwrap" data-soonwrap><p class="lh-soon-h"><span>In preparation</span><small>Not ready to read yet</small></p><div class="lh-grid lh-grid-soon"><div class="lh-card t-research soon" data-type="research" data-topic="ops"><span class="lh-top"><span class="lh-type">Research</span></span><h3>Where a service’s information goes</h3><p>How orders, tickets and stock are recorded in UK kitchens today.</p><span class="lh-foot"><span class="lh-tp">Restaurant operations</span><span class="lh-soon">In preparation</span></span></div><div class="lh-card t-research soon" data-type="research" data-topic="guest"><span class="lh-top"><span class="lh-type">Research</span></span><h3>QR ordering without an app: what guests accept</h3><p>Observed behaviour at the table during pilots. Sample.</p><span class="lh-foot"><span class="lh-tp">Guest experience</span><span class="lh-soon">In preparation</span></span></div><div class="lh-card t-playbook soon" data-type="playbook" data-topic="kitchen"><span class="lh-top"><span class="lh-type">Playbook</span></span><h3>Your first week with a kitchen display</h3><p>A day-by-day plan for moving one station off printer tickets.</p><span class="lh-foot"><span class="lh-tp">Kitchen management</span><span class="lh-soon">In preparation</span></span></div><div class="lh-card t-playbook soon" data-type="playbook" data-topic="food"><span class="lh-top"><span class="lh-type">Playbook</span></span><h3>Passing an EHO inspection with a digital diary</h3><p>What to have ready, and how to show it in under a minute.</p><span class="lh-foot"><span class="lh-tp">Food safety and traceability</span><span class="lh-soon">In preparation</span></span></div><div class="lh-card t-insight soon" data-type="insight" data-topic="kitchen"><span class="lh-top"><span class="lh-type">Insight</span></span><h3>Why amendments go missing between the floor and the pass</h3><p>A short read on shouted changes.</p><span class="lh-foot"><span class="lh-tp">Kitchen management</span><span class="lh-soon">In preparation</span></span></div><div class="lh-card t-insight soon" data-type="insight" data-topic="food"><span class="lh-top"><span class="lh-type">Insight</span></span><h3>“Not checked” is an honest allergen state</h3><p>Here is how to use it.</p><span class="lh-foot"><span class="lh-tp">Food safety and traceability</span><span class="lh-soon">In preparation</span></span></div><div class="lh-card t-insight soon" data-type="insight" data-topic="inv"><span class="lh-top"><span class="lh-type">Insight</span></span><h3>The Sunday diary problem</h3><p>And why scanning at the door fixes it.</p><span class="lh-foot"><span class="lh-tp">Inventory management</span><span class="lh-soon">In preparation</span></span></div><div class="lh-card t-insight soon" data-type="insight" data-topic="ops"><span class="lh-top"><span class="lh-type">Insight</span></span><h3>Reading a close-day variance in fifteen minutes</h3><p>A short read on cash that does not match.</p><span class="lh-foot"><span class="lh-tp">Restaurant operations</span><span class="lh-soon">In preparation</span></span></div><div class="lh-card t-tool soon" data-type="tool" data-topic="inv"><span class="lh-top"><span class="lh-type">Tool</span></span><h3>Food cost calculator</h3><p>Plate cost from recipe and supplier prices, with a target margin.</p><span class="lh-foot"><span class="lh-tp">Inventory management</span><span class="lh-soon">In preparation</span></span></div><div class="lh-card t-tool soon" data-type="tool" data-topic="inv"><span class="lh-top"><span class="lh-type">Tool</span></span><h3>Waste cost estimator</h3><p>What a week of prepped rice on Mondays is really costing.</p><span class="lh-foot"><span class="lh-tp">Inventory management</span><span class="lh-soon">In preparation</span></span></div></div></div>
 <div class="lh-empty" data-empty hidden><strong>Nothing matches that yet.</strong><span>Try a shorter word, or</span><button type="button" data-clear>clear the filters</button></div>
 </div>
@@ -2243,7 +2277,7 @@ apply();
 </main>
 <footer id="demo" class="inverse" style="padding:64px 0 0;overflow:hidden">
 <div class="ft-zone"><div class="wrap ft"><div class="ft-brand"><p class="ft-word">VAAQRI</p><p class="small" style="max-width:320px">AI for restaurants, from the back of the kitchen to the front of house.</p></div><nav class="ft-col" aria-label="Systems"><span class="label">Systems</span><a href="systems.html#pos">POS</a><a href="systems.html#kitchen-display">Kitchen display</a><a href="systems.html#matrix">VAAQRI Matrix</a><a href="systems.html#qr-ordering">QR ordering</a><a href="systems.html#app">VAAQRI app</a></nav><nav class="ft-col" aria-label="More from VAAQRI"><span class="label">Social</span><a href="https://www.linkedin.com/company/vaaqri-ltd/" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/vaaqri_/" rel="noopener">Instagram</a></nav></div>
-<div id="privacy" class="wrap ft-bar"><p class="small"><span id="terms">© 2026 VAAQRI Ltd · Registered in England</span></p><p class="small">Figures and names in the examples are sample data.</p><p class="ft-legal"><a href="privacy.html">Privacy</a><a href="privacy.html#terms">Terms</a></p></div>
+<div id="privacy" class="wrap ft-bar"><p class="small"><span id="terms">© 2026 VAAQRI Ltd · Registered in England</span></p><p class="ft-legal"><a href="privacy.html">Privacy and terms</a></p></div>
 <div class="wrap ft-mark" aria-hidden="true"><p>VAAQRI</p></div>
 </div></footer>
 </div>
@@ -2586,14 +2620,21 @@ if(w.matchMedia('(hover:hover) and (pointer:fine)').matches)secs.forEach(functio
   v.addEventListener('pointerleave',function(){c.style.transition='';c.style.transform='';});
 });
 })();
-/* phones: the five places do not change on their own, and a tap brings the card into view */
+/* phones and tablets: the five places are laid out one after another, so nothing switches on its own */
 (function(){
-var d=document,w=window,st=d.querySelector('#journey .stg'),tabs=[].slice.call(d.querySelectorAll('#journey .stg-tab')),pn=d.querySelector('#journey .stg-panels');
-if(!st||!tabs.length||!pn||!w.matchMedia('(max-width:900px)').matches)return;
+var d=document,w=window,st=d.querySelector('#journey .stg'),tabs=[].slice.call(d.querySelectorAll('#journey .stg-tab'));
+if(!st||!tabs.length||!w.matchMedia('(max-width:900px)').matches)return;
 tabs[0].click();
-var hint=st.querySelector('.stg-hint');if(hint)hint.hidden=true;
-tabs.forEach(function(t){t.addEventListener('click',function(e){if(!e.isTrusted)return;
-  setTimeout(function(){var y=pn.getBoundingClientRect().top+(w.scrollY||0)-84;w.scrollTo({top:y,behavior:(w.matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth')});},60);});});
+tabs.forEach(function(t){t.tabIndex=-1;t.setAttribute('aria-selected','true');});
+[].slice.call(d.querySelectorAll('#journey [data-seq]')).forEach(function(c){c.classList.add('play');});
+})();
+/* the floating demo bar steps aside once the demo form or the footer is on screen */
+(function(){
+var d=document,bar=d.querySelector('.hm-sticky');
+if(!bar||!('IntersectionObserver' in window))return;
+var seen={},upd=function(){var on=false;for(var k in seen)if(seen[k])on=true;d.body.classList.toggle('at-end',on);};
+[].slice.call(d.querySelectorAll('footer#demo>.wrap.split,.ft-zone')).forEach(function(e,i){
+  new IntersectionObserver(function(es){seen[i]=es[0].isIntersecting;upd();},{rootMargin:'0px 0px -80px 0px'}).observe(e);});
 })();
 /* motion layer: sections arrive as they are reached, the sample card leans to the pointer, the wordmark rises */
 (function(){
