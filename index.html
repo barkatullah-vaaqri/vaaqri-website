@@ -2294,6 +2294,8 @@ body.lp .ft-zone>.wrap{padding-left:0 !important;padding-right:0 !important}
 /* motion layer (landing page): arrivals, presses, the FAQ opening, the wordmark */
 html.mo body.lp .mo-rise{transition:opacity .7s ease var(--mo-d,0ms),transform .85s cubic-bezier(.2,.7,.2,1) var(--mo-d,0ms) !important}
 html.mo body.lp .mo-rise:not(.mo-in){opacity:0 !important;transform:translateY(28px) !important;transition:none !important}
+body.lp #journey.jr-pin :is(.stg-hint,.stg-pp){display:none !important}
+body.lp.jr-on .hm-sticky{opacity:0 !important;pointer-events:none !important}
 html.mo body.lp .ft-mark p{transform:translateY(72%);transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
 html.mo body.lp .ft-mark.mo-in p{transform:translateY(8px)}
 body.lp :is(.btn,.lh-cta,button.submit){transition:background-color .2s ease,border-color .2s ease,color .2s ease,transform .25s cubic-bezier(.2,.7,.2,1)}
@@ -3050,6 +3052,25 @@ var io=new IntersectionObserver(function(es){var n=0;es.forEach(function(x){if(!
 els.forEach(function(e){io.observe(e);});
 var fm=d.querySelector('.ft-mark');
 if(fm)new IntersectionObserver(function(es,o){if(es[0].isIntersecting){fm.classList.add('mo-in');o.disconnect();}},{threshold:.15}).observe(fm);
+/* five places: the box holds still while the scroll walks Kitchen, Pass, Till, Table, Office */
+var js=d.getElementById('journey'),jb=js&&js.querySelector('.bki'),jt=all('#journey .stg-tab'),jon=false,jcur=-1,jext=0,jtop=0,jpt=0,jq=false;
+function vhh(){return w.innerHeight;}
+function jdraw(){jq=false;if(!jon)return;var sc=jtop-(js.getBoundingClientRect().top+jpt),p=Math.max(0,Math.min(1,sc/jext)),k=Math.min(jt.length-1,Math.floor(p*jt.length));
+  d.body.classList.toggle('jr-on',sc>-vhh()*.5&&sc<jext+60);
+  if(k!==jcur){jcur=k;jt[k].click();}}
+function jset(){if(!jb||jt.length<2)return;
+  d.body.classList.remove('jr-on');
+  js.style.height='';jb.style.position='';jb.style.top='';js.classList.remove('jr-pin');
+  var vh=w.innerHeight,bh=jb.offsetHeight,navh=88;
+  jon=bh<=vh+150&&w.innerWidth>900;if(!jon)return;
+  jpt=parseFloat(getComputedStyle(js).paddingTop)||0;
+  jext=Math.round(vh*.5)*(jt.length-1);var sg=jb.querySelector('.stg'),so=sg?sg.getBoundingClientRect().top-jb.getBoundingClientRect().top:0,sh=sg?sg.offsetHeight:bh;
+  jtop=bh<=vh-navh-16?Math.max(navh,Math.round((vh-bh)/2)):sh<=vh-navh-24?navh+8-so:sh<=vh-40?24-so:vh-bh-16;
+  js.style.height=(js.offsetHeight+jext)+'px';jb.style.position='sticky';jb.style.top=jtop+'px';js.classList.add('jr-pin');
+  jcur=-1;jdraw();}
+if(jb){jset();var jr;w.addEventListener('resize',function(){clearTimeout(jr);jr=setTimeout(jset,180);});
+  w.addEventListener('load',jset);
+  w.addEventListener('scroll',function(){if(jon&&!jq){jq=true;requestAnimationFrame(jdraw);}},{passive:true});}
 /* the sample card leans a few degrees toward the pointer */
 var sp=d.querySelector('#journey .stg-panels');
 if(sp&&w.matchMedia('(hover:hover) and (pointer:fine)').matches){
