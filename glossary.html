@@ -1701,6 +1701,9 @@ body.lp .topbar .wrap>:last-child{grid-column:3;justify-self:end}}
 /* footer and demo box share the page's side edges */
 body.lp .ft-zone>.wrap,body.lp footer#demo>.wrap.split{width:min(100% - 2*var(--g),1200px) !important;max-width:none !important;margin-left:auto !important;margin-right:auto !important}
 body.lp .ft-zone>.wrap{padding-left:0 !important;padding-right:0 !important}
+@media (min-width:801px){body.lp .ft-zone>.wrap.ft{grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr) !important}}
+body.lp .ft-mark{overflow:hidden;height:clamp(60px,12vw,150px);margin-top:24px}
+body.lp .ft-mark p{margin:0;font-family:Anton,Impact,sans-serif;font-size:clamp(120px,24vw,300px);line-height:.8;color:var(--c-pink);letter-spacing:-.01em;text-align:center;transform:translateY(8px)}
 body.lp.rd .topbar{margin-bottom:0}
 body.lp .mdrop-p{top:calc(100% + 14px)}
 body.lp .mnav nav{top:calc(100% + 14px)}
@@ -1811,9 +1814,9 @@ body.lp.rd .lh-face.front{border-color:var(--c-ink)}
 
 </main>
 <footer id="demo" class="inverse" style="padding:64px 0 0;overflow:hidden">
-<div class="ft-zone"><div class="wrap ft" style=""><div class="ft-brand"><p class="ft-word">VAAQRI</p><p class="small" style="max-width:320px">AI for restaurants, from the back of the kitchen to the front of house.</p><a href="index.html#demo" class="btn" style="margin-top:20px;height:44px;background:#FF9CC2;color:#141212;font-size:15px">Book a free demo</a></div><nav class="ft-col" aria-label="Systems"><span class="label">Systems</span><a href="systems.html#pos">POS</a><a href="systems.html#kitchen-display">Kitchen display</a><a href="systems.html#matrix">VAAQRI Matrix</a><a href="systems.html#qr-ordering">QR ordering</a><a href="systems.html#app">VAAQRI app</a></nav><nav class="ft-col" aria-label="More from VAAQRI"><span class="label">Social</span><a href="https://www.linkedin.com/company/vaaqri-ltd/" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/vaaqri_/" rel="noopener">Instagram</a></nav></div>
-<div id="privacy" class="wrap ft-bar"><p class="small"><span id="terms">© 2026 VAAQRI Ltd · Registered in England</span></p><p class="small">Sample examples in the guides are illustrative.</p><p class="ft-legal"><a href="privacy.html">Privacy</a><a href="privacy.html#terms">Terms</a></p></div>
-<div class="wrap" aria-hidden="true" style="overflow:hidden;height:150px;margin-top:24px"><p style="margin:0;font-family:Anton,Impact,sans-serif;font-size:300px;line-height:.8;color:#FF9CC2;letter-spacing:-.01em;text-align:center;transform:translateY(8px)">VAAQRI</p></div>
+<div class="ft-zone"><div class="wrap ft"><div class="ft-brand"><p class="ft-word">VAAQRI</p><p class="small" style="max-width:320px">AI for restaurants, from the back of the kitchen to the front of house.</p></div><nav class="ft-col" aria-label="Systems"><span class="label">Systems</span><a href="systems.html#pos">POS</a><a href="systems.html#kitchen-display">Kitchen display</a><a href="systems.html#matrix">VAAQRI Matrix</a><a href="systems.html#qr-ordering">QR ordering</a><a href="systems.html#app">VAAQRI app</a></nav><nav class="ft-col" aria-label="More from VAAQRI"><span class="label">Social</span><a href="https://www.linkedin.com/company/vaaqri-ltd/" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/vaaqri_/" rel="noopener">Instagram</a></nav></div>
+<div id="privacy" class="wrap ft-bar"><p class="small"><span id="terms">© 2026 VAAQRI Ltd · Registered in England</span></p><p class="small">Figures and names in the examples are sample data.</p><p class="ft-legal"><a href="privacy.html">Privacy</a><a href="privacy.html#terms">Terms</a></p></div>
+<div class="wrap ft-mark" aria-hidden="true"><p>VAAQRI</p></div>
 </div></footer>
 </div>
 
